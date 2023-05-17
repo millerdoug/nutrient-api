@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import main.java.Objects.Item;
-import main.java.db.ItemRepository;
+import main.java.Objects.Recipe;
+import main.java.db.RecipiesRepository;
 
 @CrossOrigin(maxAge=3600)
 @RestController
 public class DataController {
 	
 	@Autowired
-	private ItemRepository itemRepository;
+	private RecipiesRepository recipiesRepository;
 
-	@GetMapping("/info")
-	public List<Item> getItem(@RequestParam(value = "name", defaultValue = "Item1") String name) {
-			return itemRepository.findByIdKey(name);
+	@GetMapping("/recipies")
+	public List<Recipe> getRecipies(@RequestParam(value = "name", defaultValue = "Item1") String name) {
+			return recipiesRepository.findByIdName(name);
 	}
 	
 }

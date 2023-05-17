@@ -12,4 +12,7 @@ import main.java.Objects.Item;
 public interface ItemRepository extends JpaRepository<Item, Long> { 
     @Query(value="Select * FROM item WHERE id = :id", nativeQuery=true)
     List<Item> findByIdKey(String id);
+    
+    @Query(value="Select * FROM item WHERE name = :name", nativeQuery=true)
+    List<Item> findByIdName(String name);
 }
